@@ -3,3 +3,5 @@ defmodule MyModule do
    IO.puts("Called MyModule.run")
  end
 end
+
+ MyModule.run()
