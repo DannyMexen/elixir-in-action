@@ -7,7 +7,7 @@ defmodule Geometry do
     a * a
   end
 
-  def area({:cirlce, r}) do
+  def area({:circle, r}) do
     r * r * 3.14
   end
 end
