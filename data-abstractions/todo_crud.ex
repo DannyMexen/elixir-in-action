@@ -33,6 +33,16 @@ defmodule TodoList do
     %TodoList{todo_list | entries: Map.delete(todo_list.entries, entry_id)}
   end
 
+  def new(entries \\ []) do
+    Enum.reduce(
+      entries,
+      %TodoList{},
+      fn entry, todo_list_acc ->
+        add_entry(todo_list_acc, entry)
+      end
+    )
+  end
+
   def entries(todo_list, date) do
     todo_list.entries
     |> Stream.filter(fn {_, entry} -> entry.date == date end)
