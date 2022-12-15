@@ -28,6 +28,8 @@ defmodule TodoList do
     end
   end
 
+  # TODO: delete_entry/2
+
   def entries(todo_list, date) do
     todo_list.entries
     |> Stream.filter(fn {_, entry} -> entry.date == date end)
