@@ -29,6 +29,9 @@ defmodule TodoList do
   end
 
   # TODO: delete_entry/2
+  def delete_entry(todo_list, entry_id) do
+    %TodoList{todo_list | entries: Map.delete(todo_list.entries, entry_id)}
+  end
 
   def entries(todo_list, date) do
     todo_list.entries
