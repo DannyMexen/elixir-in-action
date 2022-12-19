@@ -37,5 +37,7 @@ defp process_message(todo_list, {:entries, caller, date}) do
   todo_list
 end
 
+# TODO: Exercise on updating and deleting entries
+
 defmodule TodoList do
 end
