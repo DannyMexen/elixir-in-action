@@ -5,10 +5,8 @@ defmodule DatabaseServer do
 
   defp loop do
     receive do
-
     end
 
     loop()
   end
-
 end
