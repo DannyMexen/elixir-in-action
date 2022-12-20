@@ -23,11 +23,14 @@ defmodule ServerProcess do
   end
 
   def call(server_pid, request) do
-    send(server_pid, {request, self()}) # Sends the message
+    # Sends the message
+    send(server_pid, {request, self()})
 
     receive do
-      {:response, response} -> # Waits for the response
-        response # Returns the response
+      # Waits for the response
+      {:response, response} ->
+        # Returns the response
+        response
     end
   end
 end
@@ -35,15 +38,18 @@ end
 # Implementation of a simple key/value store
 # Usage - process that can be used to store mappings between arbitrary terms
 defmodule KeyValueStore do
- def init do
-   %{} # Initial process state
- end
+  def init do
+    # Initial process state
+    %{}
+  end
 
- def handle_call({:put, key, value}, state) do # Handles the put request
-   {:ok, Map.put(state, key, value)}
- end
+  # Handles the put request
+  def handle_call({:put, key, value}, state) do
+    {:ok, Map.put(state, key, value)}
+  end
 
- def handle_call({:get, key, value}) do # Handles the get request
-   {Map.get(state, key), state}
- end
+  # Handles the get request
+  def handle_call({:get, key, value}) do
+    {Map.get(state, key), state}
+  end
 end
