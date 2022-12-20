@@ -53,7 +53,7 @@ defmodule KeyValueStore do
     ServerProcess.cast(pid, {:put, key, value})
   end
 
-  def get(pid, key, value) do
+  def get(pid, key) do
     ServerProcess.call(pid, {:get, key})
   end
 
