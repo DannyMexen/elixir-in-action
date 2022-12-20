@@ -29,7 +29,7 @@ defmodule Todo.Database do
     |> file_name()
     |> File.write!(:erlang.term_to_binary(data))
 
-    {:noreplay, state}
+    {:noreply, state}
   end
 
   def handle_call({:get, key}, _, state) do
