@@ -9,7 +9,7 @@ defmodule ServerProcess do
 
   defp loop(callback_module, current_state) do
     receive do
-      {:request, caller} ->
+      {request, caller} ->
         {response, new_state} =
           callback_module.handle_call(
             request,
