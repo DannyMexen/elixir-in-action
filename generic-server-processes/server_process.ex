@@ -23,11 +23,11 @@ defmodule ServerProcess do
   end
 
   def call(server_pid, request) do
-    send(server_pid, {request, self()})
+    send(server_pid, {request, self()}) # Sends the message
 
     receive do
-      {:response, response} ->
-        response
+      {:response, response} -> # Waits for the response
+        response # Returns the response
     end
   end
 end
