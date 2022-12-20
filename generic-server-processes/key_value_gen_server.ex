@@ -1,6 +1,18 @@
 defmodule KeyValueStore do
   use GenServer
 
+  def start do
+    GenServer.start(KeyValueStore, nil)
+  end
+
+  def put(pid, key, value) do
+    GenServer.cast(pid, {:put, key, value})
+  end
+
+  def get(pid, key) do
+    GenServer.call(pid, {:get, key})
+  end
+
   # init/1 accepts one argument. This is the second argument provided to GenServer.start/2
   # and you can use it to pass data to the server process while starting it
   def init(_) do
