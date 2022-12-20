@@ -5,6 +5,14 @@ defmodule Todo.Cache do
     {:ok, %{}}
   end
 
+  def start do
+    GenServer.start(__MODULE__, nil)
+  end
+
+  def server_process(cache_pid, todo_list_name) do
+    GenServer.call(cache_pid, {:server_process, todo_list_name})
+  end
+
   def handle_call({:server_process, todo_list_name}, _, todo_servers) do
     case Map.fetch(todo_servers, todo_list_name) do
       # Server exists in the map
