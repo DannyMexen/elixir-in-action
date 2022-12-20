@@ -21,4 +21,13 @@ defmodule ServerProcess do
         loop(callback_module, new_state)
     end
   end
+
+  def call(server_pid, request) do
+    send(server_pid, {request, self()})
+
+    receive do
+      {:response, response} ->
+        response
+    end
+  end
 end
