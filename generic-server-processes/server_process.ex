@@ -31,3 +31,19 @@ defmodule ServerProcess do
     end
   end
 end
+
+# Implementation of a simple key/value store
+# Usage - process that can be used to store mappings between arbitrary terms
+defmodule KeyValueStore do
+ def init do
+   %{} # Initial process state
+ end
+
+ def handle_call({:put, key, value}, state) do # Handles the put request
+   {:ok, Map.put(state, key, value)}
+ end
+
+ def handle_call({:get, key, value}) do # Handles the get request
+   {Map.get(state, key), state}
+ end
+end
