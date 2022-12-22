@@ -1,5 +1,4 @@
 defmodule Todo.System do
-  alias Task.Supervisor
   def start_link do
     Supervisor.start_link(
       [
