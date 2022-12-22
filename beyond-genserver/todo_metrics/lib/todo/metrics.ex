@@ -12,7 +12,7 @@ defmodule Todo.Metrics do
   defp collect_metrics() do
     [
       memory_usage: :erlang.memory(:total)
-      process_count: erlang.system_info(:process_count)
+      process_count: :erlang.system_info(:process_count)
     ]
   end
 end
